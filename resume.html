@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velaga Tirumala Choudary - Resume</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @page { size: A4; margin: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.45;
+      color: #2c3e50;
+      background: white;
+      font-size: 10pt;
+    }
+    .resume-container {
+      width: 210mm;
+      min-height: 297mm;
+      background: white;
+      padding: 0;
+      margin: 0 auto;
+    }
+    .header {
+      background: linear-gradient(135deg, #00695c 0%, #00897b 100%);
+      color: white;
+      padding: 4mm 7mm;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+    .profile-header { flex: 1; }
+    .name {
+      font-size: 22pt;
+      font-weight: bold;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    .title {
+      font-size: 11pt;
+      opacity: 0.95;
+      margin-bottom: 8px;
+    }
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 8pt;
+      margin-top: 6px;
+    }
+    .contact-item { display: flex; align-items: center; gap: 5px; }
+    .contact-item i { font-size: 9pt; }
+    .profile-pic {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2px solid white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .profile-pic img { width: 100%; height: 100%; object-fit: cover; }
+    .summary {
+      margin-top: 6px;
+      font-size: 9pt;
+      line-height: 1.4;
+      text-align: justify;
+      background: rgba(255,255,255,0.1);
+      padding: 6px;
+      border-radius: 4px;
+    }
+    .main-content {
+      padding: 3mm 7mm;
+    }
+    .section {
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 10.5pt;
+      font-weight: bold;
+      color: #00695c;
+      margin-bottom: 4px;
+      padding-bottom: 2px;
+      border-bottom: 2px solid #00695c;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .section-title i { font-size: 9pt; }
+    .experience-item {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .experience-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .item-title { font-size: 9.5pt; font-weight: bold; color: #2c3e50; margin: 0; }
+    .item-company { font-size: 8.5pt; color: #00695c; font-weight: 600; margin: 0.2em 0 0 0; }
+    .item-date { font-size: 8pt; color: #666; margin: 0.1em 0 0 0; }
+    .item-description {
+      font-size: 8pt;
+      line-height: 1.35;
+      color: #444;
+    }
+    .item-description {
+      font-size: 8pt;
+      line-height: 1.35;
+      color: #444;
+      list-style: disc;
+      padding-left: 1.25rem;
+      margin: 0.25rem 0 0 0;
+    }
+    .item-description li {
+      padding: 0 0 0 0.2rem;
+      margin-bottom: 0.15rem;
+    }
+    .skill-category { margin-bottom: 3px; font-size: 8.5pt; }
+    .skill-category strong { color: #00695c; font-size: 9pt; }
+    .skill-list { font-size: 8pt; color: #555; margin-left: 8px; line-height: 1.3; }
+    .education-item { margin-bottom: 5px; font-size: 8.5pt; }
+    .education-title { font-weight: 600; color: #2c3e50; }
+    .education-school { font-size: 8pt; color: #666; }
+    .project-item {
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .project-item:last-child { border-bottom: none; }
+    .project-title { font-size: 9pt; font-weight: bold; color: #2c3e50; margin-bottom: 2px; }
+    .project-desc { font-size: 8pt; color: #555; line-height: 1.3; margin-bottom: 2px; }
+    .cert-list, .achievement-list {
+      list-style: disc;
+      padding-left: 1.25rem;
+      margin: 0;
+    }
+    .cert-list li, .achievement-list li {
+      font-size: 8pt;
+      line-height: 1.35;
+      color: #444;
+      margin-bottom: 0.2em;
+      padding-left: 0.2em;
+    }
+    .no-print { display: block; }
+    .print-actions {
+      text-align: center;
+      padding: 20px 15px;
+      background: #f5f5f5;
+      margin: 15px auto;
+      max-width: 210mm;
+      border-radius: 8px;
+    }
+    .print-actions a {
+      display: inline-block;
+      margin: 0 8px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #00695c 0%, #00897b 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .print-actions a:hover { opacity: 0.9; }
+    .print-actions p { margin-top: 12px; font-size: 13px; color: #666; }
+    @media print {
+      body { background: white; }
+      .resume-container { box-shadow: none; }
+      .header {
+        background: #00695c !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .section-title { color: #00695c !important; }
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .resume-container { page-break-inside: avoid; }
+      .section { page-break-inside: avoid; }
+      .experience-item { page-break-inside: avoid; }
+      .project-item { page-break-inside: avoid; }
+      .no-print { display: none !important; }
+    }
+    @media screen {
+      body { padding: 15px; background: #f5f5f5; }
+      .resume-container { box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume-container">
+    <header class="header">
+      <div class="header-top">
+        <div class="profile-header">
+          <div class="name">VELAGA TIRUMALA CHOUDARY</div>
+          <div class="title">Software Engineer | Full Stack · Python · Django · AI/ML</div>
+          <div class="contact-info">
+            <span class="contact-item"><i class="fas fa-envelope"></i> velagatirumala2004@gmail.com</span>
+            <span class="contact-item"><i class="fas fa-phone"></i> +91 7207288238</span>
+          </div>
+          <div class="summary">
+            Seeking a challenging Software Engineer role, utilizing strong foundations in Python, full-stack development, and applied AI to contribute to high-quality solution delivery in an Agile environment.
+          </div>
+        </div>
+        <div class="profile-pic"><img src="Photo/image.png" alt="Velaga Tirumala Choudary" /></div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <section class="section">
+        <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+        <div class="experience-item">
+          <div class="item-title">Software Engineer</div>
+          <div class="item-company">TekTap Consulting Pvt Ltd</div>
+          <div class="item-date">September 2025 – Present</div>
+          <ul class="item-description">
+            <li>Managed the full Software Development Life Cycle (SDLC), from low-level design and development to rigorous testing, debugging, and deployment.</li>
+            <li>Developed and maintained core application components, ensuring solutions are reliable, cost-effective, and meet specific business requirements.</li>
+            <li>Actively engaged in team collaboration, raising clarifications on business requirements, and contributing to technical documentation.</li>
+            <li>Identified, prioritized, and took ownership of tasks to ensure timely project delivery and mitigate failure points.</li>
+          </ul>
+        </div>
+        <div class="experience-item">
+          <div class="item-title">Python Full Stack Development (Training)</div>
+          <div class="item-company">Pentagon Space, Bangalore</div>
+          <div class="item-date">February 2025 – August 2025</div>
+          <ul class="item-description">
+            <li>Hands-on training in Python full-stack development, building responsive web applications using Django, JavaScript, and modern frontend technologies.</li>
+          </ul>
+        </div>
+        <div class="experience-item">
+          <div class="item-title">Data Science Intern</div>
+          <div class="item-company">Data Valley</div>
+          <div class="item-date">2024</div>
+          <ul class="item-description">
+            <li>Hands-on internship in data science and analytics.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+        <div class="education-item">
+          <div class="education-title">B.Tech Computer Science (AI/ML)</div>
+          <div class="education-school">St. Mary's Women's Engineering College, Guntur · May 2025 · GPA: 8.2</div>
+        </div>
+        <div class="education-item">
+          <div class="education-title">Class XII</div>
+          <div class="education-school">Board of Intermediate Education, AP (2021) · 86%</div>
+        </div>
+        <div class="education-item">
+          <div class="education-title">Class X</div>
+          <div class="education-school">SSC, Andhra Pradesh (2019) · 86%</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><i class="fas fa-code"></i> Technical Skills</h2>
+        <div class="skill-category"><strong>Programming:</strong> <span class="skill-list">Python 3, SQL, HTML, CSS, JavaScript (Basic)</span></div>
+        <div class="skill-category"><strong>Tools & Cloud:</strong> <span class="skill-list">Git, VS Code, PyCharm, Postman, AWS (ELB, ASG, S3)</span></div>
+        <div class="skill-category"><strong>Aptitude & Methodology:</strong> <span class="skill-list">Logical Reasoning, Quantitative Ability, Problem Solving, Agile SDLC</span></div>
+        <div class="skill-category"><strong>Professional:</strong> <span class="skill-list">Team Collaboration, Technical Documentation, Client Interaction, Task Prioritization</span></div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><i class="fas fa-project-diagram"></i> Key Projects</h2>
+        <div class="project-item">
+          <div class="project-title">Smart Irrigation System (IoT/ML)</div>
+          <div class="project-desc">Built an IoT-based irrigation platform using Python, Raspberry Pi, and Arduino. Applied Machine Learning algorithms (Reinforcement Learning and Hidden Markov Models) to optimize system performance and water efficiency.</div>
+          <div class="skill-list">Python, Raspberry Pi, Arduino, ML</div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">E-Commerce Web App</div>
+          <div class="project-desc">Created a full-featured e-commerce website with integrated secure login and user/admin panels. Conducted rigorous usability and performance testing for quality assurance.</div>
+          <div class="skill-list">HTML, CSS, JavaScript</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Training</h2>
+        <ul class="cert-list">
+          <li>AWS Training – Brainovision</li>
+          <li>Generative AI & ChatGPT – Blackbucks</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><i class="fas fa-trophy"></i> Achievements</h2>
+        <ul class="achievement-list">
+          <li>Organized and participated in multiple NSS camps and community development activities.</li>
+          <li>Served as a member of the NSS.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <div class="no-print print-actions">
+    <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Profile</a>
+    <a href="javascript:window.print()"><i class="fas fa-print"></i> Print / Save as PDF</a>
+    <p>Use <strong>Ctrl+P</strong> (or Cmd+P on Mac) → choose "Save as PDF" → set paper size to A4 for best results.</p>
+  </div>
+</body>
+</html>

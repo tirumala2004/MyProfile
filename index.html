@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velaga Tirumala Choudary | Software Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', 'Poppins', sans-serif; scroll-behavior: smooth; font-size: 1.0625rem; }
+    .text-body { font-size: 1.0625rem; }
+    .section-heading { font-size: 1.75rem; }
+    @media (min-width: 768px) { .section-heading { font-size: 1.95rem; } }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, #4f46e5, #7c3aed);
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(to bottom, #4338ca, #6d28d9);
+    }
+    #navbar { transition: all 0.3s ease; }
+    #navbar.scrolled {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    .nav-link {
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #4f46e5, #7c3aed);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after { width: 100%; }
+    .nav-link.active { color: #4f46e5; font-weight: 600; }
+    .skill-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .skill-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .exp-block { margin-bottom: 2rem; }
+    .exp-block:last-child { margin-bottom: 0; }
+    .exp-block ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin: 0.5rem 0 0 0;
+    }
+    .exp-block ul li {
+      margin-bottom: 0.35rem;
+      padding-left: 0.25rem;
+    }
+    .exp-block ul li::marker { color: #4f46e5; }
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+    .project-card:hover::before { left: 100%; }
+    section { scroll-margin-top: 80px; }
+    .gradient-text {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    #mobile-menu.show { max-height: 500px; }
+    @media print {
+      nav, #mobile-menu-btn, .no-print { display: none !important; }
+      section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between items-center h-16">
+        <a href="#home" class="text-xl font-bold gradient-text">VC</a>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 no-print" aria-label="Menu">
+          <i class="fas fa-bars text-gray-600"></i>
+        </button>
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="#home" class="nav-link px-3 py-2 text-gray-600 hover:text-indigo-600 text-sm font-medium">Home</a>
+          <a href="#about" class="nav-link px-3 py-2 text-gray-600 hover:text-indigo-600 text-sm font-medium">About</a>
+          <a href="#skills" class="nav-link px-3 py-2 text-gray-600 hover:text-indigo-600 text-sm font-medium">Skills</a>
+          <a href="#experience" class="nav-link px-3 py-2 text-gray-600 hover:text-indigo-600 text-sm font-medium">Experience</a>
+          <a href="#education" class="nav-link px-3 py-2 text-gray-600 hover:text-indigo-600 text-sm font-medium">Education</a>
+          <a href="#projects" class="nav-link px-3 py-2 text-gray-600 hover:text-indigo-600 text-sm font-medium">Projects</a>
+          <a href="#training" class="nav-link px-3 py-2 text-gray-600 hover:text-indigo-600 text-sm font-medium">Training</a>
+          <a href="#achievements" class="nav-link px-3 py-2 text-gray-600 hover:text-indigo-600 text-sm font-medium">Achievements</a>
+          <a href="#contact" class="nav-link px-3 py-2 text-gray-600 hover:text-indigo-600 text-sm font-medium">Contact</a>
+          <a href="resume.html" class="ml-2 px-4 py-2 rounded-lg text-white text-sm font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow">View Resume</a>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-200">
+      <div class="px-4 py-3 space-y-1">
+        <a href="#home" class="nav-link block px-3 py-2 text-gray-600">Home</a>
+        <a href="#about" class="nav-link block px-3 py-2 text-gray-600">About</a>
+        <a href="#skills" class="nav-link block px-3 py-2 text-gray-600">Skills</a>
+        <a href="#experience" class="nav-link block px-3 py-2 text-gray-600">Experience</a>
+        <a href="#education" class="nav-link block px-3 py-2 text-gray-600">Education</a>
+        <a href="#projects" class="nav-link block px-3 py-2 text-gray-600">Projects</a>
+        <a href="#training" class="nav-link block px-3 py-2 text-gray-600">Training</a>
+        <a href="#achievements" class="nav-link block px-3 py-2 text-gray-600">Achievements</a>
+        <a href="#contact" class="nav-link block px-3 py-2 text-gray-600">Contact</a>
+        <a href="resume.html" class="block px-3 py-2 text-indigo-600 font-semibold">View Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20 pb-16 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div class="fade-in max-w-3xl flex flex-col items-center">
+      <img src="Photo/image.png" alt="Velaga Tirumala Choudary" class="w-36 h-36 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-white shadow-xl mb-6 ring-2 ring-indigo-100" />
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-2 tracking-tight">Velaga Tirumala Choudary</h1>
+      <p class="text-xl sm:text-2xl font-semibold text-indigo-600 mb-3">Software Engineer</p>
+      <p class="text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed text-[1.05rem]">Full-stack development · Python · Django · AI/ML · Building reliable, scalable solutions in Agile environments.</p>
+      <a href="resume.html" class="inline-flex items-center px-6 py-3 rounded-lg text-white text-base font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition">View Resume</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16 px-4 bg-white">
+    <div class="max-w-4xl mx-auto fade-in">
+      <h2 class="section-heading font-bold text-gray-900 mb-6 pb-2 border-b-2 border-indigo-500 inline-block">About Me</h2>
+      <p class="text-gray-600 leading-relaxed text-[1.05rem]">
+        Seeking a challenging Software Engineer role, utilizing strong foundations in Python, full-stack development, and applied AI to contribute to high-quality solution delivery in an Agile environment.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-16 px-4 bg-gray-50">
+    <div class="max-w-4xl mx-auto fade-in">
+      <h2 class="section-heading font-bold text-gray-900 mb-8 pb-2 border-b-2 border-indigo-500 inline-block">Skills</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-[0.95rem] font-bold text-indigo-600 uppercase tracking-wider mb-3">Programming</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">Python 3</span>
+            <span class="skill-badge">SQL</span>
+            <span class="skill-badge">HTML</span>
+            <span class="skill-badge">CSS</span>
+            <span class="skill-badge">JavaScript (Basic)</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-[0.95rem] font-bold text-indigo-600 uppercase tracking-wider mb-3">Tools & Cloud</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">Git</span>
+            <span class="skill-badge">VS Code</span>
+            <span class="skill-badge">PyCharm</span>
+            <span class="skill-badge">Postman</span>
+            <span class="skill-badge">AWS (ELB, ASG, S3)</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-[0.95rem] font-bold text-indigo-600 uppercase tracking-wider mb-3">Aptitude & Methodology</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">Logical Reasoning</span>
+            <span class="skill-badge">Quantitative Ability</span>
+            <span class="skill-badge">Problem Solving</span>
+            <span class="skill-badge">Agile SDLC</span>
+          </div>
+        </div>
+        <div class="sm:col-span-2 lg:col-span-3">
+          <h3 class="text-[0.95rem] font-bold text-indigo-600 uppercase tracking-wider mb-3">Professional</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">Team Collaboration</span>
+            <span class="skill-badge">Technical Documentation</span>
+            <span class="skill-badge">Client Interaction</span>
+            <span class="skill-badge">Task Prioritization</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="py-16 px-4 bg-white">
+    <div class="max-w-4xl mx-auto fade-in">
+      <h2 class="section-heading font-bold text-gray-900 mb-8 pb-2 border-b-2 border-indigo-500 inline-block">Experience</h2>
+      <div class="space-y-10">
+        <div class="exp-block">
+          <h3 class="text-xl font-bold text-gray-900 m-0">Software Engineer</h3>
+          <p class="text-indigo-600 font-semibold text-base m-0 mt-1">TekTap Consulting Pvt Ltd</p>
+          <p class="text-gray-500 text-[0.95rem] m-0 mt-0.5">September 2025 – Present</p>
+          <ul class="text-gray-600 text-[1.02rem] leading-relaxed">
+            <li>Managed the full Software Development Life Cycle (SDLC), from low-level design and development to rigorous testing, debugging, and deployment.</li>
+            <li>Developed and maintained core application components, ensuring solutions are reliable, cost-effective, and meet specific business requirements.</li>
+            <li>Actively engaged in team collaboration, raising clarifications on business requirements, and contributing to technical documentation.</li>
+            <li>Identified, prioritized, and took ownership of tasks to ensure timely project delivery and mitigate failure points.</li>
+          </ul>
+        </div>
+        <div class="exp-block">
+          <h3 class="text-xl font-bold text-gray-900 m-0">Python Full Stack Development (Training)</h3>
+          <p class="text-indigo-600 font-semibold text-base m-0 mt-1">Pentagon Space, Bangalore</p>
+          <p class="text-gray-500 text-[0.95rem] m-0 mt-0.5">February 2025 – August 2025</p>
+          <ul class="text-gray-600 text-[1.02rem] leading-relaxed">
+            <li>Hands-on training in Python full-stack development, building responsive web applications using Django, JavaScript, and modern frontend technologies.</li>
+          </ul>
+        </div>
+        <div class="exp-block">
+          <h3 class="text-xl font-bold text-gray-900 m-0">Data Science Intern</h3>
+          <p class="text-indigo-600 font-semibold text-base m-0 mt-1">Data Valley</p>
+          <p class="text-gray-500 text-[0.95rem] m-0 mt-0.5">2024</p>
+          <ul class="text-gray-600 text-[1.02rem] leading-relaxed">
+            <li>Hands-on internship in data science and analytics.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="py-16 px-4 bg-gray-50">
+    <div class="max-w-4xl mx-auto fade-in">
+      <h2 class="section-heading font-bold text-gray-900 mb-8 pb-2 border-b-2 border-indigo-500 inline-block">Education</h2>
+      <div class="space-y-4">
+        <div class="pb-4 border-b border-gray-200">
+          <p class="font-bold text-gray-900 text-[1.05rem]">B.Tech Computer Science (AI/ML)</p>
+          <p class="text-gray-600 text-[1rem]">St. Mary's Women's Engineering College, Guntur · May 2025 · GPA: 8.2</p>
+        </div>
+        <div class="pb-4 border-b border-gray-200">
+          <p class="font-bold text-gray-900 text-[1.05rem]">Class XII</p>
+          <p class="text-gray-600 text-[1rem]">Board of Intermediate Education, AP (2021) · 86%</p>
+        </div>
+        <div>
+          <p class="font-bold text-gray-900 text-[1.05rem]">Class X</p>
+          <p class="text-gray-600 text-[1rem]">SSC, Andhra Pradesh (2019) · 86%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-16 px-4 bg-white">
+    <div class="max-w-4xl mx-auto fade-in">
+      <h2 class="section-heading font-bold text-gray-900 mb-8 pb-2 border-b-2 border-indigo-500 inline-block">Projects</h2>
+      <div class="space-y-6">
+        <div class="project-card bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-gray-900 mb-1">Smart Irrigation System (IoT/ML)</h3>
+          <p class="text-gray-600 mb-4 text-[1.02rem] leading-relaxed">Built an IoT-based irrigation platform using Python, Raspberry Pi, and Arduino. Applied Machine Learning algorithms (Reinforcement Learning and Hidden Markov Models) to optimize system performance and water efficiency.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">Raspberry Pi</span>
+            <span class="skill-badge">Arduino</span>
+            <span class="skill-badge">ML</span>
+          </div>
+        </div>
+        <div class="project-card bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-gray-900 mb-1">E-Commerce Web App</h3>
+          <p class="text-gray-600 mb-4 text-[1.02rem] leading-relaxed">Created a full-featured e-commerce website with integrated secure login and user/admin panels. Conducted rigorous usability and performance testing for quality assurance.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">HTML</span>
+            <span class="skill-badge">CSS</span>
+            <span class="skill-badge">JavaScript</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Training -->
+  <section id="training" class="py-16 px-4 bg-gray-50">
+    <div class="max-w-4xl mx-auto fade-in">
+      <h2 class="section-heading font-bold text-gray-900 mb-8 pb-2 border-b-2 border-indigo-500 inline-block">Training</h2>
+      <ul class="space-y-3 text-gray-600 text-[1.02rem]">
+        <li class="pb-3 border-b border-gray-200">AWS Training – Brainovision</li>
+        <li class="pb-3">Generative AI & ChatGPT – Blackbucks</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section id="achievements" class="py-16 px-4 bg-white">
+    <div class="max-w-4xl mx-auto fade-in">
+      <h2 class="section-heading font-bold text-gray-900 mb-8 pb-2 border-b-2 border-indigo-500 inline-block">Achievements</h2>
+      <ul class="list-disc pl-5 space-y-2 text-gray-600 text-[1.02rem]">
+        <li>Organized and participated in multiple NSS camps and community development activities.</li>
+        <li>Served as a member of the NSS.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 px-4 bg-gray-50">
+    <div class="max-w-4xl mx-auto fade-in">
+      <h2 class="section-heading font-bold text-gray-900 mb-8 pb-2 border-b-2 border-indigo-500 inline-block">Get In Touch</h2>
+      <h3 class="text-lg font-semibold text-gray-800 mb-4">Contact Information</h3>
+      <div class="grid sm:grid-cols-2 gap-6 text-[1.05rem]">
+        <div class="flex items-start gap-3">
+          <i class="fas fa-envelope text-indigo-600 mt-1 text-lg"></i>
+          <div>
+            <p class="font-semibold text-gray-900">Email</p>
+            <a href="mailto:velagatirumala2004@gmail.com" class="text-indigo-600 hover:underline">velagatirumala2004@gmail.com</a>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <i class="fas fa-phone text-indigo-600 mt-1 text-lg"></i>
+          <div>
+            <p class="font-semibold text-gray-900">Phone</p>
+            <a href="tel:+917207288238" class="text-indigo-600 hover:underline">+91 7207288238</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-6 px-4 bg-white border-t border-gray-200 text-center text-gray-500 text-[0.95rem]">
+    &copy; 2025 Velaga Tirumala Choudary. All rights reserved.
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      });
+    }
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('show');
+        const icon = mobileMenuBtn.querySelector('i');
+        if (icon) {
+          if (mobileMenu.classList.contains('show')) {
+            icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+          } else {
+            icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+          }
+        }
+      });
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            const y = target.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+          if (mobileMenu) mobileMenu.classList.remove('show');
+          if (mobileMenuBtn) {
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+          }
+        }
+      });
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    function updateActiveNavLink() {
+      const scrollY = window.pageYOffset;
+      sections.forEach(section => {
+        const top = section.offsetTop - 100;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        if (scrollY >= top && scrollY < top + height) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + id) link.classList.add('active');
+          });
+        }
+      });
+    }
+    window.addEventListener('scroll', updateActiveNavLink);
+    updateActiveNavLink();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
